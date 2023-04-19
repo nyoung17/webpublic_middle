@@ -1,0 +1,564 @@
+<!DOCTYPE html> <!-- 22161033 오나영 -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <style media="screen">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: '맑은고딕';
+            font-size: 14px;
+            color: #444444;
+            overflow-x: hidden;
+            background-color: rgb(238, 251, 238);
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        header {
+            width: 100%;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        #logo {
+            float: left;
+            margin: 20px 0 0 80px;
+        }
+        #logo a:hover {
+            content: url("./img/logo.png");
+        }
+
+        #menus {
+            float: right;
+        }
+
+        #top_menu {
+            text-align: right;
+            margin: 16px 80px 0 0;
+        }
+
+        #main_menu {
+            margin: 20px 80px 0 0;
+            font-family: 'HY견고딕';
+            font-size: 20px;
+            color: black;
+        }
+
+        #main_menu a:hover {
+            font-size: 23px;
+        }
+
+        #main_menu li {
+            display: inline;
+            margin-left: 80px;
+            color: black;
+        }
+
+        #main_img {
+            height: 281px;
+        }
+
+
+        #contents {
+            float: left;
+            margin: 30px 0 0 0;
+        }
+
+        #sub_menu {
+            width: 234px;
+            float: left;
+            margin: 40px;
+            position: relative;
+            left: 150px;
+
+        }
+
+        #sub_menu h3 {
+            text-align: center;
+            font-size: 20px;
+            color: #ffffff;
+            padding: 12px;
+            background-color: #115c0b;
+        }
+
+        #sub_menu li {
+            text-align: center;
+            font-size: 15px;
+            padding: 12px;
+            border-bottom: dotted 2px #cccccc;
+            font-weight: bold;
+        }
+
+        #sub_text1 p {
+            font-size: 30px;
+            margin: 50px 0 0 0;
+            position: relative;
+            left: 720px;
+            font-weight: bold;
+
+        }
+        #sub_text2 p {
+            font-size: 30px;
+            margin: 120px 0 0 0;
+            position: relative;
+            left: 980px;
+            font-weight: bold;
+
+        }
+        .item {
+            position: relative;
+            margin: 0 30px 20px 30px;
+            left: 420px;
+            top: 30px;
+        }
+        .item2 {
+            position: relative;
+            margin: 0 30px 20px 30px;
+            left: 420px;
+            top: 60px;
+        }
+
+        .section {
+            position: relative;
+            left: -65px;
+            top: 45px;
+        }
+
+        /* INPUT 가리기 */
+        .section input[id*="slide"] {
+            display: none;
+        }
+
+        /* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+        .section .slidewrap {
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .section .slidelist {
+            white-space: nowrap;
+            font-size: 0;
+        }
+
+        .section .slidelist>li {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            transition: all .5s;
+        }
+
+        .section .slidelist>li>a {
+            display: block;
+            position: relative;
+
+        }
+
+        .section .slidelist>li>a img {
+            width: 900px;
+            
+        }
+        
+
+        /* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+        .section .slidelist label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 50px;
+            cursor: pointer;
+        }
+
+        .section .slidelist .left {
+            left: 30px;
+            background: url('./img/catt.png') center center / 100% no-repeat;
+        }
+
+        .section .slidelist .right {
+            right: 2px;
+            background: url('./img/catt.png') center center / 100% no-repeat;
+        }
+
+        /* INPUT 체크되면 변화값이 li까지 전달되는 스타일 */
+        .section input[id="slide01"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(0%);
+        }
+
+        .section input[id="slide02"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-100%);
+        }
+
+        .section input[id="slide03"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-200%);
+        }
+        .section input[id="slide04"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-300%);
+        }
+        .section input[id="slide05"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-400%);
+        }
+        .section input[id="slide06"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-500%);
+        }
+        .section input[id="slide07"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-600%);
+        }
+        .section .slidelist img {
+            height: 603px;
+            margin-bottom: 70px;
+        }
+        .slidelist img.cat {
+            position: relative;
+            left: 450px;
+        }
+        
+
+        #travel_sub {
+            float: right;
+            margin: 90px 820px 0 0;
+            border-radius: 30px;
+            border: solid 8px #6d856c;
+            display: inline;
+        }
+
+        #travel_sub .left {
+            position: relative;
+            border-radius: 20px;
+            transition: transform .2s;
+        }
+
+        #travel_sub .right {
+            position: absolute;
+            left: 45%;
+            z-index: -1;
+            margin: 100px 0 0 300px;
+        }
+
+        #travel_sub:hover {
+            transform: scale(1.2);
+        }
+
+        #travel2_sub {
+            float: right;
+            margin: 90px 520px 0 0;
+            border-radius: 30px;
+            border: solid 8px #6d856c;
+            display: inline;
+
+        }
+
+        #travel2_sub .left {
+            position: relative;
+            left: 0;
+
+            margin: 100px 0 0 800px;
+        }
+
+        #travel2_sub .right {
+            position: relative;
+            border-radius: 20px;
+            transition: transform .2s;
+        }
+
+        #travel2_sub:hover {
+            transform: scale(1.2);
+        }
+
+
+
+        .map1-text p {
+            margin: 350px 0 0 990px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+        #catt .left {
+            position: relative;
+            left: 690px;
+        }
+        #catt .left:hover {
+            position: relative;
+            left: 690px;
+            content: url("./img/ccfoot2.png");
+        }
+        #catt .right {
+            position: relative;
+            left: 700px;
+        }
+        #catt .right:hover {
+            position: relative;
+            left: 690px;
+            content: url("./img/ccfoot.png");
+        }
+
+        #new .item {
+            float: left;
+            margin-left: 50px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #new .item2 {
+            float: left;
+            margin-left: 50px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #new .subject {
+            font-size: 17px;
+            margin-top: 10px;
+            color: #80a727;
+        }
+        #new .comment {
+            margin-top: 5px;
+            color: #888888;
+        }
+        #new .price {
+            margin-top: 5px;
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        
+
+        footer {
+            height: 150px;
+            margin-top: 389px;
+            background-color: #6d856c;
+        }
+
+        #footer_box {
+            height: 150px;
+
+        }
+
+        #footer_logo {
+            float: left;
+            margin: 50px 0 0 80px;
+
+        }
+
+        #address {
+            float: right;
+            margin: 50px 80px 0 0;
+            color: white;
+
+        }
+        .item2 img:hover {
+            transform: scale(0.7);
+        }
+        .item2 img {
+            transition: transform .2s;
+        }
+        .item img:hover {
+            transform: scale(0.7);
+        }
+        .item img {
+            transition: transform .2s;
+        }
+        #new .price:hover {
+            color: #115c0b;
+        }
+
+        a:link {
+            color: #6d856c;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #6d856c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #115c0b;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: #6d856c;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html">
+                <img src="./img/logoo.png" alt="">
+              </a>
+        </div>
+
+        <nav id="menus">
+
+            <div id="top_menu">
+                로그인 | 회원가입 | 공지사항
+
+            </div>
+            <ul id="main_menu">
+                <li><a href="page1.html">Travel</a></li>
+                <li><a href="page2.html">Food</a></li>
+                <li><a href="page3.html">Fashion</a></li>
+                <li><a href="page4.html">Interior</a></li>
+                <li><a href="page5.html">Cat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id='contents'>
+
+        <nav id='sub_menu'>
+            <h3>Cat</h3>
+            <ul>
+                <li>갤러리</li>
+                <li>용품</li>
+            </ul>
+        </nav>
+    </section>
+
+    <section id="sub_text1">
+        <p>갤러리</p>
+    </section>
+
+
+    <div class="section">
+        <input type="radio" name="slide" id="slide01" checked>
+        <input type="radio" name="slide" id="slide02">
+        <input type="radio" name="slide" id="slide03">
+        <input type="radio" name="slide" id="slide04">
+        <input type="radio" name="slide" id="slide05">
+        <input type="radio" name="slide" id="slide06">
+        <input type="radio" name="slide" id="slide07">
+
+        <div class="slidewrap">
+            <ul class="slidelist">
+                <li>
+                    <a>
+                        <label for="slide07" class="left"></label>
+                        <img src="./img/cat7.png">
+                        <label for="slide02" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide01" class="left"></label>
+                        <img src="./img/cat2.png">
+                        <label for="slide03" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide02" class="left"></label>
+                        <img src="./img/cat3.png">
+                        <label for="slide04" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide03" class="left"></label>
+                        <img src="./img/cat4.png">
+                        <label for="slide05" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide04" class="left"></label>
+                        <img src="./img/cat5.png">
+                        <label for="slide06" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide05" class="left"></label>
+                        <img src="./img/cat1.png">
+                        <label for="slide07" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide06" class="left"></label>
+                        <img src="./img/cat4.png">
+                        <label for="slide01" class="right"></label>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <section id="catt">
+        <img src="./img/cfoot2.png" width="340" class="left" >
+        <img src="./img/cfoot.png" width="340" class="right">
+    </section>
+    
+    <section id="sub_text2">
+        <p>Recommend</p>
+    </section>
+
+    <div id="new">
+        <ul class="item">
+            <li> <img src="./img/snack.png" width="340"></li>
+            <li class="subject">템테이션 캣 트릿 맛있는 닭고기맛 160g</li>
+            <li class="price">6,800원</li>
+        </ul>
+        <ul class="item">
+            <li> <img src="./img/snack2.png" width="340"></li>
+            <li class="subject">로얄캐닌 캣 인도어 1.2kg 변냄새 감소</li>
+            <li class="price">22,600원</li>
+        </ul>
+        <ul class="item">
+            <li> <img src="./img/snack3.png" width="340"></li>
+            <li class="subject">알모네이쳐 캣 닭고기&참치 캔 70g</li>
+            <li class="price">2,600원</li>
+        </ul>
+
+        <div class="clear"></div></div>
+        <div id="new">
+            <ul class="item2">
+                <li> <img src="./img/snack4.png" width="340"></li>
+                <li class="subject">캐티맨 강아지풀 대</li>
+                <li class="price">3,200원</li>
+            </ul>
+            <ul class="item2">
+                <li> <img src="./img/snack5.png" width="340"></li>
+                <li class="subject">루어캣 3D 스크래쳐 평판 2p</li>
+                <li class="price">5,000원</li>
+            </ul>
+            <ul class="item2">
+                <li> <img src="./img/snack6.png" width="340"></li>
+                <li class="subject">[브랜드전] 호랑이 두부모래 오리지날 7L</li>
+                <li class="price">6,900원</li>
+            </ul>
+        </div> <!-- new -->
+
+
+
+
+    <div class='clear'></div>
+    <!-- float 속성 해제-->
+    <footer>
+        <div id='footer_box'>
+            <div id='footer_logo'>
+                <a href="index.html"><img src='./img/logo1.png'></a>
+            </div>
+            <ul id='address'>
+                <li>경기도 의왕시 계원대학로 66</li>
+                <li>TEL:010-123-4567 Email:ony8817@kaywon.ac.kr</li>
+                <li>COPYRIGHT (C) 오나영 ALL RIGHTS RESERVED</li>
+
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

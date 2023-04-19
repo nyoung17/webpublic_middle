@@ -1,0 +1,510 @@
+<!DOCTYPE html> <!-- 22161033 오나영 -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <style media="screen">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            
+            font-family: '맑은고딕';
+            font-size: 14px;
+            color: #444444;
+            overflow-x: hidden;
+            background-color: rgb(238, 251, 238);
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        header {
+            width: 100%;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        #logo {
+            float: left;
+            margin: 20px 0 0 80px;
+        }
+        #logo a:hover {
+            content: url("./img/logo.png");
+        }
+
+        #menus {
+            float: right;
+        }
+
+        #top_menu {
+            text-align: right;
+            margin: 16px 80px 0 0;
+        }
+
+        #main_menu {
+            margin: 20px 80px 0 0;
+            font-family: 'HY견고딕';
+            font-size: 20px;
+            color: black;
+        }
+
+        #main_menu a:hover {
+            font-size: 23px;
+        }
+
+        #main_menu li {
+            display: inline;
+            margin-left: 80px;
+            color: black;
+        }
+
+        #main_img {
+            height: 281px;
+        }
+
+
+        #contents {
+            float: left;
+            margin: 30px 0 0 0;
+        }
+
+        #sub_menu {
+            width: 234px;
+            float: left;
+            margin: 40px;
+            position: relative;
+            left: 150px;
+
+        }
+
+        #sub_menu h3 {
+            text-align: center;
+            font-size: 20px;
+            color: #ffffff;
+            padding: 12px;
+            background-color: #115c0b;
+        }
+
+        #sub_menu li {
+            text-align: center;
+            font-size: 15px;
+            padding: 12px;
+            border-bottom: dotted 2px #cccccc;
+            font-weight: bold;
+        }
+
+        #sub_text1 p {
+            font-size: 30px;
+            margin: 50px 0 0 0;
+            position: relative;
+            left: 680px;
+            font-weight: bold;
+
+        }
+
+        .section {
+            position: relative;
+            left: -65px;
+            top: 45px;
+        }
+
+        /* INPUT 가리기 */
+        .section input[id*="slide"] {
+            display: none;
+        }
+
+        /* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+        .section .slidewrap {
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .section .slidelist {
+            white-space: nowrap;
+            font-size: 0;
+        }
+
+        .section .slidelist>li {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            transition: all .5s;
+        }
+
+        .section .slidelist>li>a {
+            display: block;
+            position: relative;
+
+        }
+
+        .section .slidelist>li>a img {
+            width: 100%;
+        }
+
+        /* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+        .section .slidelist label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 50px;
+            cursor: pointer;
+        }
+
+        .section .slidelist .left {
+            left: 30px;
+            background: url('./img/left.png') center center / 100% no-repeat;
+        }
+
+        .section .slidelist .right {
+            right: 30px;
+            background: url('./img/right.png') center center / 100% no-repeat;
+        }
+
+        /* INPUT 체크되면 변화값이 li까지 전달되는 스타일 */
+        .section input[id="slide01"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(0%);
+        }
+
+        .section input[id="slide02"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-100%);
+        }
+
+        .section input[id="slide03"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-200%);
+        }
+
+        .section input[id="slide04"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-300%);
+        }
+
+        .section input[id="slide05"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-400%);
+        }
+
+        #travel_sub {
+            float: right;
+            margin: 90px 880px 0 0;
+            border-radius: 30px;
+            border: solid 8px #6d856c;
+            display: inline;
+        }
+
+        #travel_sub .left {
+            position: relative;
+            border-radius: 20px;
+            transition: transform .2s;
+        }
+
+        #travel_sub .right {
+            position: absolute;
+            left: 45%;
+            z-index: -1;
+            margin: 100px 0 0 300px;
+        }
+
+        #travel_sub:hover {
+            transform: scale(1.2);
+        }
+
+        #travel2_sub {
+            float: right;
+            margin: 90px 520px 0 0;
+            border-radius: 30px;
+            border: solid 8px #6d856c;
+            display: inline;
+
+        }
+
+        #travel2_sub .left {
+            position: absolute;
+            left: 0;
+            
+
+            margin: 130px 0 0 800px;
+        }
+
+        #travel2_sub .right {
+            position: relative;
+            border-radius: 20px;
+            transition: transform .2s;
+        }
+
+        #travel2_sub:hover {
+            transform: scale(1.2);
+        }
+
+        
+
+        #travel3_sub {
+            float: right;
+            margin: 90px 720px 0 0;
+            border-radius: 30px;
+            border: solid 8px #6d856c;
+            display: inline;
+        }
+        #travel3_sub:hover {
+            transform: scale(1.2);
+        }
+
+
+
+        .map1-text p {
+            margin: 350px 0 0 880px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+
+        body:hover .scroll-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
+
+        footer {
+            height: 150px;
+            margin-top: 389px;
+            background-color: #6d856c;
+        }
+
+        #footer_box {
+            height: 150px;
+
+        }
+
+        #footer_logo {
+            float: left;
+            margin: 50px 0 0 80px;
+
+        }
+
+        #address {
+            float: right;
+            margin: 50px 80px 0 0;
+            color: white;
+
+        }
+
+        a:link {
+            color: #6d856c;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #6d856c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #115c0b;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: #6d856c;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html">
+                <img src="./img/logoo.png" alt="">
+              </a>
+        </div>
+
+        <nav id="menus">
+
+            <div id="top_menu">
+                로그인 | 회원가입 | 공지사항
+
+            </div>
+            <ul id="main_menu">
+                <li><a href="page1.html">Travel</a></li>
+                <li><a href="page2.html">Food</a></li>
+                <li><a href="page3.html">Fashion</a></li>
+                <li><a href="page4.html">Interior</a></li>
+                <li><a href="page5.html">Cat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id='contents'>
+
+        <nav id='sub_menu'>
+            <h3>Travel</h3>
+            <ul>
+                <li>제주도</li>
+            </ul>
+        </nav>
+    </section>
+
+    <section id="sub_text1">
+        <p>제주도</p>
+    </section>
+
+
+    <div class="section">
+        <input type="radio" name="slide" id="slide01" checked>
+        <input type="radio" name="slide" id="slide02">
+        <input type="radio" name="slide" id="slide03">
+        <input type="radio" name="slide" id="slide04">
+        <input type="radio" name="slide" id="slide05">
+
+        <div class="slidewrap">
+            <ul class="slidelist">
+                <li>
+                    <a>
+                        <label for="slide05" class="left"></label>
+                        <img src="./img/jeju1.jpg">
+                        <label for="slide02" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide01" class="left"></label>
+                        <img src="./img/jeju2.jpg">
+                        <label for="slide03" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide02" class="left"></label>
+                        <img src="./img/jeju3.jpg">
+                        <label for="slide04" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide03" class="left"></label>
+                        <img src="./img/jeju4.jpg">
+                        <label for="slide05" class="right"></label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <label for="slide02" class="left"></label>
+                        <img src="./img/jeju5.jpg">
+                        <label for="slide01" class="right"></label>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section id="travel_sub">
+
+        <img src="./img/jejuair.png" alt="image1" class="left">
+        <img src="./img/map1.png" alt="image2" class="right">
+    </section>
+
+
+    <div class="map1-text">
+        <p>제주공항에서 이동해서 ~</p>
+
+    </div>
+    <section id="travel2_sub">
+        <img src="./img/map2.png" alt="image2" class="left">
+        <img src="./img/uramsun.png" alt="image1" class="right">
+    </section>
+
+
+    <div class="map1-text">
+        <p>서귀포 유람선 도착!!</p>
+
+    </div>
+    <section id="travel_sub">
+
+        <img src="./img/garmegi.png" alt="image1" class="left">
+        <img src="./img/map1.png" alt="image2" class="right">
+    </section>
+
+
+    <div class="map1-text">
+        <p>갈매기도 보고,,,장소 이동해서</p>
+
+    </div>
+    <section id="travel2_sub">
+        <img src="./img/map2.png" alt="image2" class="left">
+        <img src="./img/u.png" alt="image1" class="right">
+    </section>
+
+
+    <div class="map1-text">
+        <p>유채꽃밭 도착~ 꽃도 보고</p>
+
+    </div>
+    <section id="travel_sub">
+
+        <img src="./img/uu.png" alt="image1" class="left">
+        <img src="./img/map1.png" alt="image2" class="right">
+    </section>
+
+
+    <div class="map1-text">
+        <p>귤 따기 체험까즤~ 하고 바로</p>
+
+    </div>
+    <section id="travel2_sub">
+        <img src="./img/map2.png" alt="image2" class="left">
+        <img src="./img/bada.png" alt="image1" class="right">
+    </section>
+
+
+    <div class="map1-text">
+        <p>바다보며 힐링..!</p>
+
+    </div>
+    <section id="travel_sub">
+
+        <img src="./img/dae.png" alt="image1" class="left">
+        <img src="./img/map1.png" alt="image2" class="right">
+    </section>
+
+
+    <div class="map1-text">
+        <p>자연으로 만든 우리나라 지도를 마지막으로 보며</p>
+
+    </div>
+    <section id="travel3_sub">
+        <img src="./img/jejuair2.png" alt="image1" class="right">
+    </section>
+
+
+    <div class="map1-text">
+        <p>서울로 돌아가 제주도 여행은 끝!!</p>
+
+    </div>
+
+
+
+    <div class='clear'></div>
+    <!-- float 속성 해제-->
+    <footer>
+        <div id='footer_box'>
+            <div id='footer_logo'>
+                <a href="index.html"><img src='./img/logo1.png'></a>
+            </div>
+            <ul id='address'>
+                <li>경기도 의왕시 계원대학로 66</li>
+                <li>TEL:010-123-4567 Email:ony8817@kaywon.ac.kr</li>
+                <li>COPYRIGHT (C) 오나영 ALL RIGHTS RESERVED</li>
+
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

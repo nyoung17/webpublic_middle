@@ -1,0 +1,273 @@
+<!DOCTYPE html> <!-- 22161033 오나영 -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <style media="screen">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: '맑은고딕';
+            font-size: 14px;
+            color: #444444;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        header {
+            width: 100%;
+            height: 100px;
+            margin: 0 auto;
+            z-index:10;   
+            position:relative;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        #logo {
+            float: left;
+            margin: 20px 0 0 80px;
+        }
+        #logo a:hover {
+            content: url("./img/logo.png");
+        }
+        #menus {
+            float: right;
+        }
+
+        #top_menu {
+            text-align: right;
+            margin: 16px 80px 0 0;
+        }
+
+        #main_menu {
+            margin: 20px 80px 0 0;
+            font-family: 'HY견고딕';
+            font-size: 20px;
+            color: black;
+        }
+        #main_menu a:hover {
+            font-size: 23px;
+        }
+        
+
+        #main_menu li {
+            display: inline;
+            margin-left: 80px;
+            color: black;
+        }
+
+        #main_img {
+            width: 100%;
+            height: 281px;
+            margin-top: 50px;
+            opacity: 70%;
+        }
+
+        #main_img {
+            height: 620px;
+        }
+
+        #contents {
+            width: 1140px;
+            margin: 0 auto;
+        }
+
+        #sub_menu {
+            width: 234px;
+            float: left;
+            margin-top: 25px;
+
+        }
+
+        #sub_menu h3 {
+            font-size: 18px;
+            color: #FF0578;
+            padding: 12px;
+            background-color: #F0A8AF;
+        }
+
+        #sub_menu li {
+            padding: 10px;
+            border-bottom: dotted 1px #cccccc;
+        }
+
+        #main_contents {
+            width: 880px;
+            float: left;
+            margin-top: 25px;
+            margin: 0 0 25px 320px;
+        }
+
+        #main_contents h3 {
+            font-size: 22px;
+            padding-bottom: 8px;
+
+        }
+
+        #main_contents p {
+            margin-top: 30px;
+            line-height: 180%;
+        }
+
+        #main_contents #figure {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #main_contents li {
+            padding: 5px;
+        }
+
+
+        .fullscreen-bg {
+            height: 1000px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            animation: slide 10s infinite;
+            opacity: 70%;
+            z-index: 6;
+        }
+        section{margin-top:-100px;}
+        @keyframes slide {
+            0% {
+                background-image: url('./img/main_animation1.jpg');
+            }
+
+            33% {
+                background-image: url('./img/main_animation2.jpg');
+            }
+
+            55% {
+                background-image: url('./img/main_animation3.jpg');
+            }
+
+            80% {
+                background-image: url('./img/main_animation2.jpg');
+            }
+
+            100% {
+                background-image: url('./img/main_animation5.jpg');
+            }
+        }
+
+        .content {
+            /* 섹션 내용 스타일링 */
+        }
+
+        footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            margin-top: 0;
+            background-color: #6d856c;
+        }
+
+        #footer_box {
+            width: 100%;
+            height: 150px;
+            margin: 0 auto;
+
+        }
+
+        #footer_logo {
+            float: left;
+            margin: 50px 0 0 80px;
+
+        }
+
+        #address {
+            float: right;
+            margin: 50px 80px 0 0;
+            color: white;
+
+        }
+
+        a:link {
+            color: #6d856c;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color:#6d856c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #115c0b;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: #6d856c;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            
+            <a href="index.html">
+                <img src="./img/logoo.png" alt="">
+              </a>
+        </div>
+
+        <nav id="menus">
+
+            <div id="top_menu">
+                로그인 | 회원가입 | 공지사항
+
+            </div>
+            <ul id="main_menu">
+                <li><a href="page1.html">Travel</a></li>
+                <li><a href="page2.html">Food</a></li>
+                <li><a href="page3.html">Fashion</a></li>
+                <li><a href="page4.html">Interior</a></li>
+                <li><a href="page5.html">Cat</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="fullscreen-bg">
+        <div class="content">
+            <!-- 섹션 내용 -->
+        </div>
+    </section>
+
+    <section id="contents">
+
+
+
+
+    </section>
+
+    <div class="clear"></div>
+    <!-- float 속성 해제-->
+    <footer>
+        <div id="footer_box">
+            <div id="footer_logo">
+                <a href="index.html"><img src='./img/logo1.png'></a>
+            </div>
+            <ul id="address">
+                <li>경기도 의왕시 계원대학로 66</li>
+                <li>TEL:010-123-4567 Email:ony8817@kaywon.ac.kr</li>
+                <li>COPYRIGHT (C) 오나영 ALL RIGHTS RESERVED</li>
+
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>
